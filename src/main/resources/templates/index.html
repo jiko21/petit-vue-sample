@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>let form
+</head>
+    <body>
+        <h1>Petite Vueのサンプル</h1>
+        <script src="https://unpkg.com/petite-vue" defer init></script>
+        <form action="" method="post">
+            <div>
+                <label for="name">商品名</label>
+                <input type="text" name="name" id="name"/>
+            </div>
+            <div v-scope="{ count: 0 }">
+                <label for="count">個数</label>
+                <button @click.prevent="count--">-</button>
+                <input type="number" name="count" id="count" v-model="count"/>
+                <button @click.prevent="count++">+</button>
+            </div>
+            <button type="submit">追加</button>
+        </form>
+        <ul th:each="cart : ${carts}">
+            <li>
+                商品名: <td th:text="${cart.name}"></td>
+                個数: <td th:text="${cart.count}"></td>
+            </li>
+        </ul>
+    </body>
+</html>
